@@ -8,9 +8,26 @@ let verificationArrow = document.getElementById("verify-window-arrow");
 let verificationButton = document.getElementById("verify-verify-button");
 let error = document.getElementById("error");
 
+function clickTile(i) {
+  let imgElement = document.getElementById(i);
+  let container = imgElement.closest('.image-container');
+  
+  if(imgElement.className !== "tile-selected") {
+    imgElement.className = "tile-selected";
+    container.classList.add('tile-selected');
+  } else {
+    imgElement.className = "tile-unselected";
+    container.classList.remove('tile-selected');
+  }
+}
+
 function fillTiles() {
   for(let i = 1; i < 10; i++) {
-    document.getElementById(i.toString()).src = imgData[tracker][i-1];
+    let imgElement = document.getElementById(i.toString());
+    imgElement.src = imgData[tracker][i-1];
+    imgElement.className = "tile-unselected";
+    let container = imgElement.closest('.image-container');
+    container.classList.remove('tile-selected');
   }
 
   document.getElementById("captcha-name").innerText = imgData[tracker][9];
@@ -18,14 +35,6 @@ function fillTiles() {
   tracker++;
   if(tracker > max) {
     tracker = 1;
-  }
-}
-
-function clickTile(i) {
-  if(document.getElementById(i).className !== "tile-selected") {
-    document.getElementById(i).className = "tile-selected";
-  } else {
-    document.getElementById(i).className = "tile-unselected";
   }
 }
 
