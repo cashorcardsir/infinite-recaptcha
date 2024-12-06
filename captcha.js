@@ -38,6 +38,15 @@ function fillTiles() {
   }
 }
 
+function toggleInfoText() {
+  var infoText = document.getElementById("info-text");
+  if (infoText.style.display === "none" || infoText.style.display === "") {
+    infoText.style.display = "block";
+  } else {
+    infoText.style.display = "none";
+  }
+}
+
 function clickDetection() {
   if(checkbox && verificationButton) {
     verificationButton.addEventListener("click", function (e) {
@@ -53,6 +62,10 @@ function clickDetection() {
       checkbox.disabled = true;
       spinner();
     });
+  let infoButton = document.querySelector('.footer-left-button-info');
+  if (infoButton) {
+    infoButton.addEventListener('click', toggleInfoText);
+  }
     window.addEventListener('click', function(e) {
       if(verification.contains(e.target) || checkboxContainer.contains(e.target)) {
       } else {
