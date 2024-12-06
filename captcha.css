@@ -288,3 +288,12 @@
 .tile-selected .tick-overlay {
   display: block;
 }
+
+.info-text {
+  display: none;
+  text-align: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #cecece;
+  font-size: 14px;
+}
