@@ -72,6 +72,10 @@ function clickDetection() {
       checkbox.disabled = true;
       spinner();
     });
+   let reloadButton = document.querySelector('.footer-left-button-reload');
+  if (reloadButton) {
+    reloadButton.addEventListener('click', resetAndFillTiles);
+  } 
   let infoButton = document.querySelector('.footer-left-button-info');
   if (infoButton) {
     infoButton.addEventListener('click', toggleInfoText);
@@ -138,6 +142,16 @@ function hideVerification() {
   checkboxSpinner.style.opacity = "0";
   checkbox.disabled = false;
   verificationButton.disabled = false;
+}
+
+function resetAndFillTiles() {
+  for(let i = 1; i < 10; i++) {
+    let imgElement = document.getElementById(i.toString());
+    imgElement.className = "tile-unselected";
+    let container = imgElement.closest('.image-container');
+    container.classList.remove('tile-selected');
+  }
+  fillTiles();
 }
 
 window.onload = fillTiles;
