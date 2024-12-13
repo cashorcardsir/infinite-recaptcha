@@ -63,6 +63,7 @@ function clickDetection() {
       error.style.display = "block";
       for(let i = 1; i < 10; i++) {
         document.getElementById(i).className = "tile-unselected";
+        document.getElementById(i).closest('.image-container').classList.remove('tile-selected');
       }
       fillTiles();
     });
@@ -138,3 +139,5 @@ function hideVerification() {
   checkbox.disabled = false;
   verificationButton.disabled = false;
 }
+
+window.onload = fillTiles;
