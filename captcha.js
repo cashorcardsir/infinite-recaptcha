@@ -22,19 +22,28 @@ function clickTile(i) {
 }
 
 function fillTiles() {
+  // Randomly select a category
+  currentCategory = imgData[Math.floor(Math.random() * imgData.length)];
+  
+  // Shuffle the images
+  let shuffledImages = [...currentCategory.images];
+  shuffleArray(shuffledImages);
+
   for(let i = 1; i < 10; i++) {
     let imgElement = document.getElementById(i.toString());
-    imgElement.src = imgData[tracker][i-1];
+    imgElement.src = shuffledImages[i-1];
     imgElement.className = "tile-unselected";
     let container = imgElement.closest('.image-container');
     container.classList.remove('tile-selected');
   }
 
-  document.getElementById("captcha-name").innerText = imgData[tracker][9];
+  document.getElementById("captcha-name").innerText = currentCategory.name;
+}
 
-  tracker++;
-  if(tracker > max) {
-    tracker = 1;
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
