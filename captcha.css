@@ -2,6 +2,10 @@
   font-family: Roboto, helvetica, arial, sans-serif;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .m-p {
   margin: 0;
   padding: 0;
