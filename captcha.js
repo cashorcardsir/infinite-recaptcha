@@ -130,7 +130,7 @@ function displayVerification() {
 function toggleAudioMessage() {
   const verifyContainer = document.querySelector('.verify-container');
   const audioMessage = document.getElementById('audio-message');
-  const verifyTiles = document.querySelector('.verify-tiles');
+  const verifyTiles = document.querySelector('.verify-area');
   const footer = document.querySelector('.verify-footer');
 
   if (audioMessage.style.display === 'none') {
