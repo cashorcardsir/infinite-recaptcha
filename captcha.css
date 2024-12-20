@@ -301,3 +301,21 @@
   border-top: 1px solid #cecece;
   font-size: 14px;
 }
+
+.audio-message {
+  padding: 16px;
+}
+
+.audio-header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.audio-content {
+  padding-top: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
