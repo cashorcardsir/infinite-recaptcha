@@ -146,39 +146,46 @@ function hideVerification() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const button = document.querySelector('.footer-left-button.footer-left-button-audio');
-  const verifyContainer = document.getElementById('verify-container');
+  const verifyContainer = document.querySelector('.verify-container');
+  const footer = document.querySelector('.verify-footer');
 
   button.addEventListener('click', function() {
     // Check if the frame already exists
-    if (document.querySelector('.frame')) {
-      // If it exists, remove it and show the original verify container
-      const frame = document.querySelector('.frame');
-      frame.remove();
-      verifyContainer.style.display = 'block';
+    const existingFrame = document.querySelector('.frame');
+    
+    if (existingFrame) {
+      // If frame exists, remove it and show the original content
+      existingFrame.remove();
+      Array.from(verifyContainer.children).forEach(child => {
+        if (child !== footer) {
+          child.style.display = 'block';
+        }
+      });
     } else {
-      // Hide the original verify container
-      verifyContainer.style.display = 'none';
+      // Hide all content except footer
+      Array.from(verifyContainer.children).forEach(child => {
+        if (child !== footer) {
+          child.style.display = 'none';
+        }
+      });
 
-      // Create the frame element
+      // Create and insert the frame
       const frame = document.createElement('div');
       frame.className = 'frame';
-
-      // Create the blue bar element
+      
       const blueBar = document.createElement('div');
       blueBar.className = 'blue-bar';
       blueBar.textContent = 'Try again later';
-
-      // Create the content element
+      
       const content = document.createElement('div');
       content.className = 'content';
-      content.innerHTML = 'Please try again, or click this <a href="https://google.com" class="link">link</a>';
-
-      // Append the blue bar and content to the frame
+      content.innerHTML = 'Please try again, or click this <a href="https://google.com" target="_blank" class="link">link</a>';
+      
       frame.appendChild(blueBar);
       frame.appendChild(content);
-
-      // Append the frame to the body or a specific container
-      document.body.appendChild(frame);
+      
+      // Insert the frame before the footer
+      verifyContainer.insertBefore(frame, footer);
     }
   });
 });
