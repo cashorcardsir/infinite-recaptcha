@@ -134,19 +134,22 @@ function displayVerification() {
 function toggleAudioMessage() {
   const verifyContainer = document.querySelector('.verify-container');
   const audioMessage = document.getElementById('audio-message');
-  const verifyTiles = document.querySelector('.verify-area');
+  const verifyTiles = document.querySelector('.verify-tiles');
+  const verifyHeader = document.querySelector('.verify-header');
   const footer = document.querySelector('.verify-footer');
 
   if (audioMessage.style.display === 'none') {
     // Hide the image verification and show the audio message
     verifyTiles.style.display = 'none';
     audioMessage.style.display = 'block';
+    verifyHeader.style.display = 'none';
     // Move the footer after the audio message
     audioMessage.parentNode.insertBefore(footer, audioMessage.nextSibling);
   } else {
     // Hide the audio message and show the image verification
     audioMessage.style.display = 'none';
     verifyTiles.style.display = 'table';
+    verifyHeader.style.display = 'block';
     // Move the footer back to its original position
     verifyContainer.appendChild(footer);
     // Reset and fill tiles with new images
