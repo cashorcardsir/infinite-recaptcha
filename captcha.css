@@ -301,33 +301,3 @@
   border-top: 1px solid #cecece;
   font-size: 14px;
 }
-
-.frame {
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 0;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.blue-bar {
-  background-color: #1a73e8;
-  color: white;
-  padding: 16px;
-  font-family: Arial, sans-serif;
-}
-
-.content {
-  padding: 20px;
-  margin-top: 10px;
-  font-family: Arial, sans-serif;
-}
-
-.link {
-  color: #1a73e8;
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
