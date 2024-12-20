@@ -144,53 +144,6 @@ function hideVerification() {
   verificationButton.disabled = false;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const button = document.querySelector('.footer-left-button.footer-left-button-audio');
-  const verifyContainer = document.querySelector('.verify-container');
-  const footer = document.querySelector('.verify-footer');
-
-  button.addEventListener('click', function() {
-    // Check if the frame already exists
-    const existingFrame = document.querySelector('.frame');
-    
-    if (existingFrame) {
-      // If frame exists, remove it and show the original content
-      existingFrame.remove();
-      Array.from(verifyContainer.children).forEach(child => {
-        if (child !== footer) {
-          child.style.display = 'block';
-        }
-      });
-    } else {
-      // Hide all content except footer
-      Array.from(verifyContainer.children).forEach(child => {
-        if (child !== footer) {
-          child.style.display = 'none';
-        }
-      });
-
-      // Create and insert the frame
-      const frame = document.createElement('div');
-      frame.className = 'frame';
-      
-      const blueBar = document.createElement('div');
-      blueBar.className = 'blue-bar';
-      blueBar.textContent = 'Try again later';
-      
-      const content = document.createElement('div');
-      content.className = 'content';
-      content.innerHTML = 'Please try again, or click this <a href="https://google.com" target="_blank" class="link">link</a>';
-      
-      frame.appendChild(blueBar);
-      frame.appendChild(content);
-      
-      // Insert the frame before the footer
-      verifyContainer.insertBefore(frame, footer);
-    }
-  });
-});
-
-
 function resetAndFillTiles() {
   for(let i = 1; i < 10; i++) {
     let imgElement = document.getElementById(i.toString());
