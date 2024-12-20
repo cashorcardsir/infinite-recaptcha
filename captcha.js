@@ -58,7 +58,7 @@ function toggleInfoText() {
 
 function clickDetection() {
   if(checkbox && verificationButton) {
-    verificationButton.addEventListener("click", function (e) {
+    let verifyButtonHandler = function (e) {
       e.preventDefault();
       error.style.display = "block";
       for(let i = 1; i < 10; i++) {
@@ -66,24 +66,37 @@ function clickDetection() {
         document.getElementById(i).closest('.image-container').classList.remove('tile-selected');
       }
       fillTiles();
-    });
+    };
+
+    verificationButton.addEventListener("click", verifyButtonHandler);
+
     checkbox.addEventListener("click", function (e) {
       e.preventDefault();
       checkbox.disabled = true;
       spinner();
     });
-   let reloadButton = document.querySelector('.footer-left-button-reload');
-  if (reloadButton) {
-    reloadButton.addEventListener('click', resetAndFillTiles);
-  }
+
+    let reloadButton = document.querySelector('.footer-left-button-reload');
+    if (reloadButton) {
+      reloadButton.addEventListener('click', resetAndFillTiles);
+    } 
+
+    let infoButton = document.querySelector('.footer-left-button-info');
+    let infoButtonHandler = toggleInfoText;
+    if (infoButton) {
+      infoButton.addEventListener('click', infoButtonHandler);
+    }
+
     let audioButton = document.querySelector('.footer-left-button-audio');
     if (audioButton) {
-      audioButton.addEventListener('click', toggleAudioMessage);
+      audioButton.addEventListener('click', function() {
+        toggleAudioMessage();
+        // Remove event listeners for verify and info buttons
+        verificationButton.removeEventListener("click", verifyButtonHandler);
+        infoButton.removeEventListener('click', infoButtonHandler);
+      });
     }
-  let infoButton = document.querySelector('.footer-left-button-info');
-  if (infoButton) {
-    infoButton.addEventListener('click', toggleInfoText);
-  }
+
     window.addEventListener('click', function(e) {
       if(verification.contains(e.target) || checkboxContainer.contains(e.target)) {
       } else {
