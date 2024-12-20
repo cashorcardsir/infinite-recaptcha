@@ -127,6 +127,25 @@ function displayVerification() {
   }
 }
 
+function toggleAudioMessage() {
+  const verifyContainer = document.querySelector('.verify-container');
+  const audioMessage = document.getElementById('audio-message');
+  const footer = document.querySelector('.verify-footer');
+
+  if (audioMessage.style.display === 'none') {
+    verifyContainer.style.display = 'none';
+    audioMessage.style.display = 'block';
+    // Move the footer after the audio message
+    audioMessage.parentNode.insertBefore(footer, audioMessage.nextSibling);
+  } else {
+    audioMessage.style.display = 'none';
+    verifyContainer.style.display = 'block';
+    // Move the footer back to its original position
+    verifyContainer.appendChild(footer);
+  }
+}
+
+
 function hideVerification() {
   verification.style.display = "none";
   verification.style.visibility = "hidden";
