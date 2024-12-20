@@ -137,26 +137,30 @@ function toggleAudioMessage() {
   const verifyTiles = document.querySelector('.verify-tiles');
   const verifyHeader = document.querySelector('.verify-header');
   const footer = document.querySelector('.verify-footer');
+  const verifyButton = document.getElementById('verify-verify-button');
+  const audioButton = document.querySelector('.footer-left-button-audio');
+  const infoButton = document.querySelector('.footer-left-button-info');
 
-  if (audioMessage.style.display === 'none') {
-    // Hide the image verification and show the audio message
-    verifyTiles.style.display = 'none';
-    audioMessage.style.display = 'block';
-    verifyHeader.style.display = 'none';
-    // Move the footer after the audio message
-    audioMessage.parentNode.insertBefore(footer, audioMessage.nextSibling);
-  } else {
-    // Hide the audio message and show the image verification
-    audioMessage.style.display = 'none';
-    verifyTiles.style.display = 'table';
-    verifyHeader.style.display = 'block';
-    // Move the footer back to its original position
-    verifyContainer.appendChild(footer);
-    // Reset and fill tiles with new images
-    resetAndFillTiles();
-  }
+  // Hide the image verification and show the audio message
+  verifyTiles.style.display = 'none';
+  verifyHeader.style.display = 'none';
+  audioMessage.style.display = 'block';
+  
+  // Move the footer after the audio message
+  audioMessage.parentNode.insertBefore(footer, audioMessage.nextSibling);
+  
+  // Disable the audio button
+  audioButton.disabled = true;
+  
+  // Add grey overlay to verify button and disable it
+  verifyButton.disabled = true;
+  verifyButton.style.position = 'relative';
+  verifyButton.style.backgroundColor = '#5a89e2';
+  verifyButton.insertAdjacentHTML('afterbegin', '<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(128, 128, 128, 0.5);"></div>');
+  
+  // Disable the info button
+  infoButton.disabled = true;
 }
-
 
 function hideVerification() {
   verification.style.display = "none";
