@@ -75,7 +75,11 @@ function clickDetection() {
    let reloadButton = document.querySelector('.footer-left-button-reload');
   if (reloadButton) {
     reloadButton.addEventListener('click', resetAndFillTiles);
-  } 
+  }
+    let audioButton = document.querySelector('.footer-left-button-audio');
+    if (audioButton) {
+      audioButton.addEventListener('click', toggleAudioMessage);
+    }
   let infoButton = document.querySelector('.footer-left-button-info');
   if (infoButton) {
     infoButton.addEventListener('click', toggleInfoText);
