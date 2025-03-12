@@ -1,9 +1,0 @@
-/* Hide all other elements */
-body > * {
-  display: none;
-}
-
-/* Show only the audio message */
-#audio-message {
-  display: block !important;
-}
