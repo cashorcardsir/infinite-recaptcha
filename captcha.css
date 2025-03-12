@@ -6,6 +6,12 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+body > * {
+  display: none;
+}
+
+
+
 .m-p {
   margin: 0;
   padding: 0;
@@ -302,8 +308,8 @@
   font-size: 14px;
 }
 
-.audio-message {
-  padding: 16px;
+#audio-message {
+  display: block !important;
 }
 
 .audio-header {
