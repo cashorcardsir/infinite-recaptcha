@@ -149,30 +149,38 @@ function toggleAudioMessage() {
   const audioMessage = document.getElementById('audio-message');
   const verifyTiles = document.querySelector('.verify-tiles');
   const verifyHeader = document.querySelector('.verify-header');
-  const footer = document.querySelector('.verify-footer');
-  const verifyButton = document.getElementById('verify-verify-button');
+  const infoText = document.getElementById('info-text');
+  const error = document.getElementById('error');
   const audioButton = document.querySelector('.footer-left-button-audio');
-  const infoButton = document.querySelector('.footer-left-button-info');
-
-  // Hide the image verification and show the audio message
+  
+  // Hide the image verification and related elements
   verifyTiles.style.display = 'none';
   verifyHeader.style.display = 'none';
+  
+  // Hide info text if visible
+  infoText.style.display = 'none';
+  
+  // Hide error message if visible
+  error.style.display = 'none';
+  
+  // Show the audio message
   audioMessage.style.display = 'block';
   
-  // Move the footer after the audio message
-  audioMessage.parentNode.insertBefore(footer, audioMessage.nextSibling);
-  
-  // Disable the audio button
+  // Disable the audio button (make it non-functional after first click)
   audioButton.disabled = true;
+  audioButton.style.opacity = '0.5';
   
-  // Add grey overlay to verify button and disable it
+  // Disable the verify button and add grey overlay
+  const verifyButton = document.getElementById('verify-verify-button');
   verifyButton.disabled = true;
   verifyButton.style.position = 'relative';
   verifyButton.style.backgroundColor = '#5a89e2';
   verifyButton.insertAdjacentHTML('afterbegin', '<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(128, 128, 128, 0.5);"></div>');
   
   // Disable the info button
+  const infoButton = document.querySelector('.footer-left-button-info');
   infoButton.disabled = true;
+  infoButton.style.opacity = '0.5';
 }
 
 function hideVerification() {
