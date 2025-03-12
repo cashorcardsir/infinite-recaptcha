@@ -192,6 +192,14 @@ function hideVerification() {
   verificationButton.disabled = false;
 }
 
+document.getElementById("audio-challenge-button").addEventListener("click", function() {
+    // Hide other elements and show the audio message
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "show-audio-message-only.css";
+    document.head.appendChild(link);
+}
+
 function resetAndFillTiles() {
   for(let i = 1; i < 10; i++) {
     let imgElement = document.getElementById(i.toString());
