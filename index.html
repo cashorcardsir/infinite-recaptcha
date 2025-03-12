@@ -1,119 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Verification</title>
-    <link href="captcha.css" rel="stylesheet">
-  </head>
-  <body>
-    <p>Please complete the CAPTCHA in order to access the website.</p>
-    <div class="container m-p noselect">
-      <div id="checkbox-window" class="checkbox-window m-p block">
-        <div class="checkbox-container m-p">
-          <button type="button" id="checkbox" class="checkbox m-p line-normal"></button>
-        </div>
-        <p class="im-not-a-robot m-p line-normal">I'm not a robot</p>
-        <img src="images/logo.png" class="captcha-logo line-normal" alt="">
-        <p class="checkbox-desc checkbox-name m-p line-normal">reCAPTCHA</p>
-        <p class="checkbox-desc m-p line-normal"><a href="https://www.google.com/intl/en/policies/privacy/">Privacy</a> - <a href="https://www.google.com/intl/en/policies/terms/">Terms</a></p>
-        <img src="images/loading.gif" id="spinner" class="spinner m-p line-normal">
-      </div>
-      <div id="verify-window" class="verify-window">
-        <div class="verify-container">
-          <header class="verify-header">
-            <span class="verify-header-text-medium m-p block">Select all images with</span>
-            <span class="verify-header-text-big m-p block" id="captcha-name">kittens</span>
-            <span class="verify-header-text-medium m-p block">Click verify once there are none left.</span>
-            <span class="verify-header-text-medium m-p block"></span>
-          </header>
-          <main class="verify-main">
-            <div class="verify-area">
-              <table class="verify-tiles">
-                <tr>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(1)" id="1" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(2)" id="2" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(3)" id="3" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(4)" id="4" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(5)" id="5" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(6)" id="6" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(7)" id="7" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(8)" id="8" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="image-container">
-                      <img class="tile-unselected" onclick="clickTile(9)" id="9" src="">
-                      <div class="tick-overlay"></div>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-          </main>
+<head>
+  <meta charset="UTF-8">
+  <title>Infinite reCAPTCHA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="recaptcha-container">
+    <header class="recaptcha-header">
+      <h1>Verify you are human</h1>
+    </header>
+    <main class="recaptcha-main">
+      <table class="image-selection-table">
+        <tr>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(1)" id="1" src="">
+              <div class="tick-overlay"></div>
             </div>
-            <div class="error" id="error">Please select all matching images.</div>
-            <footer class="verify-container verify-footer">
-              <div class="verify-footer-left">
-                <button class="footer-left-button footer-left-button-reload"></button>
-                <button type="button" class="footer-left-button footer-left-button-audio"></button>                
-                <button id="info-button" class="footer-left-button footer-left-button-info"></button>
-              </div>
-              <button type="button" class="verify-verify-button block" id="verify-verify-button">Verify</button>
-            </footer>
-        <div id="info-text" class="info-text">Click on any tiles you see with the object described in the text. If new images appear with the same object, click those as well. When there are none left, click Verify.</div>
-        <div id="audio-message" class="audio-message" style="display: none;">
-          <div class="audio-header">Try again later</div>
-          <div class="audio-content">Your computer or network may be sending automated queries. To protect our users, we can't process your request right now. For more details visit this <a href="https://www.google.com" target="_blank">page</a> for more details.</div>
-        </div>
+          </td>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(2)" id="2" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(3)" id="3" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(4)" id="4" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(5)" id="5" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(6)" id="6" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(7)" id="7" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(8)" id="8" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+          <td>
+            <div class="image-container">
+              <img class="tile-unselected" onclick="clickTile(9)" id="9" src="">
+              <div class="tick-overlay"></div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </main>
+    <div class="error" id="error">Please select all matching images.</div>
+    <footer class="verify-container verify-footer">
+      <div class="verify-footer-left">
+        <button class="footer-left-button footer-left-button-reload"></button>
+        <button type="button" class="footer-left-button footer-left-button-audio" id="audio-challenge-button"></button>
+        <button id="info-button" class="footer-left-button footer-left-button-info"></button>
       </div>
-      <img src="images/captcha_arrow.svg" alt="" class="verify-window-arrow" id="verify-window-arrow"/>
+      <button type="button" class="verify-verify-button block" id="verify-verify-button">Verify</button>
+    </footer>
+    <div id="info-text" class="info-text">Click on any tiles you see with the object described in the text. If new images appear with the same object, click those as well. When there are none left, click Verify.</div>
+    <div id="audio-message" class="audio-message" style="display: none;">
+      <div class="audio-header">Try again later</div>
+      <div class="audio-content">Your computer or network may be sending automated queries. To protect our users, we can't process your request right now. For more details visit this <a href="https://www.google.com" target="_blank">help page</a>.</div>
     </div>
-      <script src="data.js"></script>
-      <script src="captcha.js"></script>
-      <script type="text/javascript">
-        clickDetection();
-        fillTiles()
-      </script>
-  </body>
-</html>
+  </div>
+  <img src="images/captcha_arrow.svg" alt="" class="verify-window-arrow" id="verify-window-arrow"/>
+  <script src="data.js"></script>
+  <script src="captcha.js"></script>
+  <script type="text/javascript">
+    clickDetection();
+    fillTiles();
+  </script>
+</body>
